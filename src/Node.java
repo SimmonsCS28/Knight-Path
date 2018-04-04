@@ -46,5 +46,13 @@ public class Node {
         return result;
     }
     
+    public void printString() {
+    	System.out.println("(" + x + "," + y + ")");
+    }
+    
+    public String pathStringBuilding(Node n) {
+    	return ("(" + n.x + "," + n.y + ")");
+    }
+    
     
 }
