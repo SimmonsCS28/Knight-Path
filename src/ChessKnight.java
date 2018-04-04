@@ -15,7 +15,7 @@ class ChessKnight {
 	 * @param N - the size of the chess board
 	 * @param knight - an object that contains the properties for a given chess piece
 	 */
-	public static void BFS(Node src, Node dest, int N, ChessPiece knight) {
+	public static boolean BFS(Node src, Node dest, int N, ChessPiece knight) {
 		
 		/* 
 		 * Keep track of visited nodes and the parents of visited nodes (for
@@ -73,14 +73,14 @@ class ChessKnight {
 
 		if (shortestPath.length() == 0) // When start position = end position
 		{
-			System.out.println("Start position equals end position");
-			shortestPath = src.printString();
+			return false;
+		} else {
+			// Print out the shortest path found including start and end position
+			System.out.println("The number of moves = " + moves);
+			System.out.print(src.pathStringBuilding(src));
+			System.out.print(shortestPath.substring(0, (shortestPath.length() - 3)));
+			return true;
 		}
-
-		// Print out the shortest path found including start and end position
-		System.out.println("The number of moves = " + moves);
-		System.out.print(src.pathStringBuilding(src));
-		System.out.print(shortestPath.substring(0, (shortestPath.length() - 3)));
 
 	}
 
@@ -139,6 +139,8 @@ class ChessKnight {
 		System.out.println("Gold position is (" + x + "," + y + "). \n");
 
 		// Call BFS method
-		BFS(knightPos, goldPos, boardSize, new KnightPiece());
+		while(BFS(knightPos, goldPos, boardSize, new KnightPiece()) == false){
+			BFS(knightPos, goldPos, boardSize, new KnightPiece());
+		};
 	}
 }
