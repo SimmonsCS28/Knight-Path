@@ -138,9 +138,17 @@ class ChessKnight {
 		Node goldPos = new Node(x, y);
 		System.out.println("Gold position is (" + x + "," + y + "). \n");
 
-		// Call BFS method
+		//Call BFS method
+		System.out.println("Breadth First Search \n");
 		while(BFS(knightPos, goldPos, boardSize, new KnightPiece()) == false){
 			BFS(knightPos, goldPos, boardSize, new KnightPiece());
+		};
+		
+		System.out.println("\n");
+		
+		System.out.println("Depth First Search \n");
+		while(DFS.DFS(knightPos, goldPos, boardSize, new KnightPiece()) == false) {
+			DFS.DFS(knightPos, goldPos, boardSize, new KnightPiece());
 		};
 	}
 }
