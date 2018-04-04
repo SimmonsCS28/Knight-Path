@@ -16,16 +16,11 @@ public class Node {
         this.y = y;
         this.dist = dist;
     }
-    
-    public Node(int x, int y, int dist, List<Node> neighbors) {
-    	this.x = x;
-        this.y = y;
-        this.dist = dist;
-        this.neighbors = neighbors;
-    }
 
-    // As we are using class object as a key in a HashMap
-    // we need to implement hashCode() and equals()
+    /* 
+     * Need to implement hashCode() and equals() since we're using class object as a key in a HashMap
+     * 
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,12 +41,12 @@ public class Node {
         return result;
     }
     
-    public void printString() {
-    	System.out.println("(" + x + "," + y + ")");
+    public String printString() {
+    	return ("(" + x + "," + y + ")");
     }
     
     public String pathStringBuilding(Node n) {
-    	return ("(" + n.x + "," + n.y + ")");
+    	return ("(" + n.x + "," + n.y + ") -> ");
     }
     
     
